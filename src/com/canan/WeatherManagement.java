@@ -1,18 +1,22 @@
 package com.canan;
 
-import com.canan.business.BusinessClient;
-import com.canan.rawdata.WeatherClient;
 import com.canan.user.UserClient;
 import com.canan.utils.Logging;
 
 public class WeatherManagement {
 	
 	public static void main(String[] args) {
-		
 		Logging.getInstance().logInfo("Weather Management System is startin...");
-		(new BusinessClient()).run();
-		(new WeatherClient()).run();
-		(new UserClient()).run();
+		
+		// BusinessClient businessClient = new BusinessClient();
+		// new Thread(businessClient,
+		// businessClient.getClass().getSimpleName()).start();
+		//
+		// WeatherClient weatherClient = new WeatherClient();
+		// new Thread(weatherClient, weatherClient.getClass().getSimpleName()).start();
+		
+		UserClient userClient = new UserClient();
+		new Thread(userClient, userClient.getName()).start(); // thread çalýþtýrma
 		Logging.getInstance().logInfo("Weather Management System has started");
 	}
 	
